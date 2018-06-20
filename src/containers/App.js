@@ -10,7 +10,8 @@ class App extends Component {
     super(props)
 
     this.state={
-      musicians: []
+      musicians: [],
+      input: ''
     }
   }
 
@@ -22,13 +23,25 @@ class App extends Component {
       }))
   }
 
+  handleChange = (e) => {
+    const entry = e.target.value
+    this.setState({
+      input: entry
+    })
+  }
+
   render() {
+    const filteredMusicians = this.state.musicians.filter(musician => {
+      return musician.name.toLowerCase().includes(this.state.input.toLowerCase())
+    })
     return (
       <div>
         <h1 className="tc">JAZZ LOOKUP</h1>
         <hr/>
-        <SearchBar />
-        <Musicians musicians={this.state.musicians} />
+        <SearchBar 
+          handleChange={this.handleChange}
+          input={this.state.input}/>
+        <Musicians musicians={filteredMusicians} />
       </div>
     );
   }
