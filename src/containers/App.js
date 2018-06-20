@@ -49,17 +49,3 @@ class App extends Component {
 }
 
 export default App;
-
-
-
-{/* 
-
-  STRUCTURE:
-        APP  >
-          TITLE
-          SEARCH BAR
-          GRID >
-            ITEMS
-*/}
-
-
