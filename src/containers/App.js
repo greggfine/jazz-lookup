@@ -4,6 +4,7 @@ import Tachyons from 'tachyons'
 import SearchBar from '../components/SearchBar'
 import Musicians from '../components/Musicians'
 import Musician from '../components/Musician'
+import Axios from 'axios'
 
 class App extends Component {
   constructor(props){
@@ -16,8 +17,8 @@ class App extends Component {
   }
 
   componentDidMount() {
-    fetch('https://linkedjazz.org/api/people/all')
-      .then(musicians => musicians.json())
+      Axios.get('https://linkedjazz.org/api/people/all')
+      .then(musicians => musicians.data)
       .then(musicians => this.setState({
         musicians
       }))
