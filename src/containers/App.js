@@ -16,7 +16,7 @@ class App extends Component {
   }
 
   componentDidMount() {
-    fetch('http://linkedjazz.org/api/people/all')
+    fetch('https://linkedjazz.org/api/people/all')
       .then(musicians => musicians.json())
       .then(musicians => this.setState({
         musicians
